@@ -1,0 +1,203 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<title>Contacts (form)</title>
+	
+<style>
+	/* Container for checkbox*/
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-center: 12px;
+  cursor: pointer;
+  font-size: 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 15px;
+  width: 15px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add orange background color */
+.container:hover input ~ .checkmark {
+  background-color: darkorange;
+}
+
+/* When the checkbox is checked, add a green background */
+.container input:checked ~ .checkmark {
+  background-color: green;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+</style>
+	<script>
+function validateForm()
+{
+//form validation
+var valid=true;
+if (document.myform.Name.value=='')
+	{
+	alert('Please fill in your name');
+	document.myform.Name.focus();
+	valid=false;
+	}
+	
+if (document.myform.Email.value=='')
+	{
+	alert('Please fill in your Email');
+	document.myform.Email.focus();
+	valid=false;
+	}
+	
+if (document.myform.hehe.value=='')
+	{
+	alert('Please fill in the message');
+	document.myform.hehe.focus();
+	valid=false;
+	}
+	
+if((document.myform.doing[0].checked == false) && (document.myform.doing[1].checked == false)&& (document.myform.doing[2].checked == false))
+	{
+	alert('Please select one of the radio button');
+	valid=false;
+	}
+
+if (document.myform.nationality.selectedIndex==0)
+	{
+	alert('Please select the checkbox');
+	valid=false;
+	}
+}
+</script>
+
+</head>
+
+<body background="minimalist aesthetic wallpaper.jpg">
+	
+	
+	<!-- The pretty navigation bar -->	
+<div class="w3-top">
+ 		<div class="w3-bar w3-grey w3-wide w3-padding w3-card">
+    		<a class="w3-bar-item">N a u f a l</a>
+    <!-- Float links to the right. Hide them on small screens -->
+    		<div class="w3-right w3-hide-small">
+      		<a href="index.html" target="_blank" class="w3-bar-item w3-button">Home</a>
+      		<a href="About.html" target="_blank" class="w3-bar-item w3-button">About Me</a>
+      		<a href="Contact.html" target="_blank" class="w3-bar-item w3-button">Contact</a>
+    		</div>
+  		</div>
+	</div>
+
+	
+	<!-- Contact Section -->
+<div class="w3-container w3-padding-24 w3-margin w3-center" id="contact">
+  <h2 style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'; color: antiquewhite" class="w3-center">My Contact</h2>
+  <p style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'; color: antiquewhite" class="w3-center w3-large">Lets get in touch. Send your details here :</p>
+	<br>
+  <div style="font-family: Cambria, 'Hoefler Text', 'Liberation Serif', Times, 'Times New Roman', 'serif'; font-size: 20px; color: antiquewhite; margin-top:40px">
+    <p><i class="w3-xxxlarge w3-margin-center"></i> Address: Presint 15H, Putrajaya</p>
+    <p><i class="w3-xxxlarge w3-margin-center"></i> My Phone Number: +60196794740</p>
+    <p><i class="w3-xxxlarge w3-margin-center"></i> My Email: naufalamjad7@gmail.com</p>
+    <br>
+	  <div class="w3-container w3-padding-20 w3-margin w3-center">
+    <form name="myform" action=""  method="POST" onsubmit="return validateForm()">
+      <p><input class="w3-input w3-border" type="text" placeholder="Your Name" name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Please enter your Email" name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Things you want to say to me: 'Our little secret hehe' " name="hehe"></p>
+		
+		<p>
+		 <p>How are you doing today :</p>
+  <input type="radio" id="great" name="doing" value="great">
+  <label for="great">Great :D</label><br>
+  <input type="radio" id="okay" name="doing" value="okay">
+  <label for="okay">Okay :)</label><br>  
+  <input type="radio" id="no" name="doing" value="no">
+  <label for="no">Could be better :(</label><br>
+		<p class="w3-center w3-large">How do you feel today :</p>
+	<table style="margin-left: auto; margin-right: auto;">
+		<tr>
+			<td>
+	<label style="color: yellow" class="container">I Feel Great
+  <input type="checkbox">
+  <div class="checkmark"></div>
+</label>
+<label style="color: paleturquoise" class="container">I Feel Very Good
+  <input type="checkbox">
+  <span class= "checkmark"></span>
+</label>
+<label style="color: springgreen" class="container">I Feel Good
+  <input type="checkbox" >
+  <span class="checkmark"></span>
+</label>
+<label style="color: black" class="container">Meh
+  <input type="checkbox">
+  <span class="checkmark"></span>
+</label>
+	</td>
+	</tr>
+	</table>
+		<br>
+        <button class="w3-button w3-black" name="submit" value="SUBMIT">
+ 
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+			
+        </button>
+      </p>
+    </form>
+	</div>
+	</div>
+		</div>
+	
+<footer class="w3-center w3-black w3-padding-64">
+  <p>~Naufal 2022~</p>
+</footer>
+
+	
+
+
+</body>
+</html>
